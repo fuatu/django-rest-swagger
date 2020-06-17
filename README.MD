@@ -188,4 +188,17 @@ urlpatterns = [
 
 now the token-auth will appear in swagger in correct format
 
+# Adding Corapi documentation
 
+in settings.py add
+```
+REST_FRAMEWORK = { 
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' 
+}
+```
+in urls.py
+```
+from rest_framework.documentation import include_docs_urls
+...
+path('api-docs/', include_docs_urls(title='Example.com API', description="All api details here")),
+```
