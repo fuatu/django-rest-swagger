@@ -156,3 +156,36 @@ urlpatterns = [
 
 ## test
 go to url http:/localhost:8000/swagger
+
+# Add authorization
+
+## install
+add to settings.py
+```
+INSTALLED_APPS = [
+	...
+    'rest_framework.authtoken',
+]
+```
+
+## under djswagger create views
+```
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.generics import GenericAPIView
+
+class TokenView(ObtainAuthToken, GenericAPIView):
+    pass
+```
+## under djswagger change urls
+```
+from djswagger.views import TokenView
+
+urlpatterns = [
+    ...
+    path('api/token-auth/', TokenView.as_view()),
+]
+```
+
+now the token-auth will appear in swagger in correct format
+
+
