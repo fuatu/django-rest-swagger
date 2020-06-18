@@ -202,3 +202,7 @@ from rest_framework.documentation import include_docs_urls
 ...
 path('api-docs/', include_docs_urls(title='Example.com API', description="All api details here")),
 ```
+# URLs
+- http://localhost:8000/swagger for swagger
+- http://localhost:8000/redoc for redoc
+- http://localhost:8000/api-docs for coreapi
